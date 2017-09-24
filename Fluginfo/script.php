@@ -71,7 +71,7 @@ function get_passengers($airline,$flightnr) {
 /*
 Returns plane information(manufacturer,type,lengthoverall,span,maxspeed,initialserviceyear,maxseats,seatsperrow) of a specific plane(defined by planeid)
 */
-function get_planinfo($planeid) {
+function get_planeinfo($planeid) {
 	global $handler; //get global handler variable
 	/*
 	Creating prepared statment to get plane info
@@ -126,14 +126,15 @@ function cancel_passenger($passengerid, $flightnr) {
 
 /*
 tests
-*/
+
 $arr_p = get_passengers("ED", 170);
 print $arr_p[1][2];
 $arr_c = get_countries();
 print $arr_c[0][1];
 $arr_f = get_flightinfo("ED", 170);
 print $arr_f[0][0];
-$arr_pl = get_planinfo(46);
+$arr_pl = get_planeinfo(46);
 print $arr_pl[0][1]
 //cancel_passenger(19,480);
+*/
 ?>
