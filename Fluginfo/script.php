@@ -2,16 +2,11 @@
 /*
 script.php
 @author: Hold Alexander
-@version: 09/23/2017
+@version: 09/30/2017
 */
-/*
-Config
-*/
-$dbhost = "localhost";
-$dbname = "jdbc";
-$dbuser = "testuser";
-$dbpwd = "testuser";
 
+require_once 'config.php';
+                        
 /*
 Connection is established(with exception)
 This will later be used as a global handler for db-connectivity
@@ -96,7 +91,7 @@ Returns a 2 Dimensional Array of all countries(code,name)
 function get_countries() {
 	global $handler; //get global handler variable
 
-	$stmt   = $handler -> query("SELECT code,name FROM countries"); //creating query to get country info
+	$stmt = $handler->query("SELECT code,name FROM countries"); //creating query to get country info
 
 	/*
 	Creating $countries array to return
@@ -125,7 +120,7 @@ function cancel_passenger($passengerid, $flightnr) {
 }
 
 /*
-tests
+Testing:
 
 $arr_p = get_passengers("ED", 170);
 print $arr_p[1][2];
