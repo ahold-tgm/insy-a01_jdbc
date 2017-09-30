@@ -4,6 +4,9 @@ class Model {
     private String selectedDepartureCountry = "";
     private String selectedDestinationCountry = "";
 
+    /**
+     * the model used to store certain information
+     */
     Model() {
 
     }

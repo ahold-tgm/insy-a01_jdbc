@@ -11,6 +11,10 @@ class DBConnection {
     static final String USER = "testuser";
     static final String PASS = "testuser";
 
+    /**
+     * Connects to the Server
+     * @param m
+     */
     DBConnection(Model m) {
         this.m = m;
         conn = null;
@@ -24,6 +28,11 @@ class DBConnection {
             e.printStackTrace();
         }
     }
+
+    /**
+     * gets an Array with all Airports in the table and saves it in the model
+     * first of destination and departure must be selected
+     */
     public void getAirportList(){
         try{
             Statement stmt_airports = conn.createStatement();
@@ -62,6 +71,9 @@ class DBConnection {
         }
     }
 
+    /**
+     * gets an Array with all Countries in the table and saves it in the model
+     */
     public void getCountrylist(){
         try{
             Statement stmt_countries;
@@ -100,6 +112,10 @@ class DBConnection {
         }
     }
 
+    /**
+     * close the connection
+     * @return true if the connection is closed
+     */
     public boolean closeConnection(){
         try {
             this.conn.close();

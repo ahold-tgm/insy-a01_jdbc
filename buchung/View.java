@@ -10,6 +10,12 @@ class View extends JFrame {
     private JComboBox destination;
     private JButton submit;
 
+    /**
+     * Obviously the View with all it components
+     *
+     * @param controller
+     * @param model
+     */
     View(Controller controller, Model model) {
         this.m = model;
         this.c = controller;
