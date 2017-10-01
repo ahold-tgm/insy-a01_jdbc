@@ -52,7 +52,7 @@ class View extends JFrame {
     }
 
     void airportPanel(){
-        this.setVisible(false);
+        this.remove(this.panel);
         this.panel = new JPanel();
         this.panel.setLayout(new FlowLayout());
 
