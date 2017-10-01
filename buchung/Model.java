@@ -1,11 +1,12 @@
 class Model {
     private String[] countries = {"", "", ""};
-    private String[] airports = {"", "", ""};
+    private String[] departureAirports = {"", "", ""};
+    private String[] destinationAirports = {"", "", ""};
     private String selectedDepartureCountry = "";
     private String selectedDestinationCountry = "";
 
     /**
-     * the model used to store certain information
+     * the model is used to store certain information
      */
     Model() {
 
@@ -18,11 +19,18 @@ class Model {
         this.countries = countries;
     }
 
-    public String[] getAirports() {
-        return airports;
+    public String[] getDepartureAirports() {
+        return departureAirports;
     }
-    public void setAirports(String[] airports) {
-        this.airports = airports;
+    public void setDepartureAirports(String[] departureAirports) {
+        this.departureAirports = departureAirports;
+    }
+
+    public String[] getDestinationAirports() {
+        return destinationAirports;
+    }
+    public void setDestinationAirports(String[] destinationAirports) {
+        this.destinationAirports = destinationAirports;
     }
 
     public String getSelectedDepartureCountry() {

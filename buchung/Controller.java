@@ -24,12 +24,15 @@ class Controller implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.v.getSubmit()){
+        if (e.getSource() == this.v.getSubmit_country()){
 
-            this.m.setSelectedDepartureCountry((String)this.v.getDeparture().getSelectedItem());
-            this.m.setSelectedDestinationCountry((String) this.v.getDestination().getSelectedItem());
+            this.m.setSelectedDepartureCountry((String)this.v.getDeparture_country().getSelectedItem());
+            this.m.setSelectedDestinationCountry((String) this.v.getDestination_country().getSelectedItem());
             System.out.println(this.m.getSelectedDepartureCountry());
             System.out.println(this.m.getSelectedDestinationCountry());
+            this.m.setDepartureAirports(this.dbcon.getAirportList(this.m.getSelectedDepartureCountry()));
+            this.m.setDestinationAirports(this.dbcon.getAirportList(this.m.getSelectedDestinationCountry()));
+            this.v.airportPanel();
         }
     }
 

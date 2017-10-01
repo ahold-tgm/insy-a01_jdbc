@@ -32,16 +32,17 @@ class DBConnection {
     /**
      * gets an Array with all Airports in the table and saves it in the model
      * first of destination and departure must be selected
+     *
+     * @param country the country of the airports
      */
-    public void getAirportList(){
+    public String[] getAirportList(String country){
+        String[] airports = new String[0];
         try{
             Statement stmt_airports = conn.createStatement();
             Statement stmt_size = conn.createStatement();
 
-            String getairports = "select name from airport where country=\""+
-                    this.m.getSelectedDepartureCountry()+ "\"";
-            String getsize = "select count(name) from airports where country=\""+
-                    this.m.getSelectedDepartureCountry()+ "\"";
+            String getairports = "select name from airport where country=\""+ country + "\"";
+            String getsize = "select count(name) from airports where country=\""+ country + "\"";
 
             ResultSet rs_getairports = stmt_airports.executeQuery(getairports);
             ResultSet rs_airportcount = stmt_size.executeQuery(getsize);
@@ -51,7 +52,7 @@ class DBConnection {
                 size = rs_airportcount.getInt("count(name)");
             }
             System.out.println(size);
-            String[] airports = new String[size];
+            airports = new String[size];
 
             int counter = 0;
             while (rs_getairports.next()) {
@@ -60,8 +61,6 @@ class DBConnection {
                 counter++;
             }
 
-            m.setAirports(airports);
-
             rs_airportcount.close();
             rs_getairports.close();
             stmt_airports.close();
@@ -69,6 +68,7 @@ class DBConnection {
         }catch(SQLException se){
             se.getStackTrace();
         }
+        return airports;
     }
 
     /**
