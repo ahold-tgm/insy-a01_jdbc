@@ -22,6 +22,7 @@ class DBConnection {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            System.out.println("Connected");
         } catch (SQLException se) {
             se.printStackTrace();
         } catch (Exception e) {
@@ -34,18 +35,34 @@ class DBConnection {
      * first of destination and departure must be selected
      *
      * @param country the country of the airports
+     * @return String Array with all airports
      */
-    public String[] getAirportList(String country){
+    String[] getAirportList(String country){
         String[] airports = new String[0];
         try{
-            Statement stmt_airports = conn.createStatement();
-            Statement stmt_size = conn.createStatement();
+            /* -------------------------------------------------------- */
+            String countrycode = "";
+            String getcountrycode ="select code from countries where name= ?";
+            PreparedStatement stmt_countrycode = conn.prepareStatement(getcountrycode);
+            stmt_countrycode.setString(1,country);
+            ResultSet rs_getcountrycode = stmt_countrycode.executeQuery();
+            while (rs_getcountrycode.next()) {
+                countrycode = rs_getcountrycode.getString("code");
+                System.out.println("country code: " + countrycode);
+            }
+            /* -------------------------------------------------------- */
 
-            String getairports = "select name from airport where country=\""+ country + "\"";
-            String getsize = "select count(name) from airports where country=\""+ country + "\"";
+            String getairports = "select name from airports where country= ?";
+            String getsize = "select count(name) from airports where country= ?";
 
-            ResultSet rs_getairports = stmt_airports.executeQuery(getairports);
-            ResultSet rs_airportcount = stmt_size.executeQuery(getsize);
+            PreparedStatement stmt_airports = conn.prepareStatement(getairports);
+            PreparedStatement stmt_size = conn.prepareStatement(getsize);
+
+            stmt_airports.setString(1,countrycode);
+            stmt_size.setString(1,countrycode);
+
+            ResultSet rs_getairports = stmt_airports.executeQuery();
+            ResultSet rs_airportcount = stmt_size.executeQuery();
 
             int size = 0;
             while (rs_airportcount.next()) {
@@ -74,7 +91,7 @@ class DBConnection {
     /**
      * gets an Array with all Countries in the table and saves it in the model
      */
-    public void getCountrylist(){
+    void getCountrylist(){
         try{
             Statement stmt_countries;
             Statement stmt_size;
@@ -91,13 +108,13 @@ class DBConnection {
             while (rs_countrycount.next()) {
                 size = rs_countrycount.getInt("count(name)");
             }
-            System.out.println(size);
+            System.out.println("country size: " + size);
             String[] countries = new String[size];
 
             int counter = 0;
             while (rs_getcountries.next()) {
                 countries[counter] = rs_getcountries.getString("name");
-                System.out.println(countries[counter]);
+                //System.out.println(countries[counter]);
                 counter++;
             }
 
@@ -112,6 +129,9 @@ class DBConnection {
         }
     }
 
+    void getFlightList(){
+        //not implemented yet
+    }
     /**
      * close the connection
      * @return true if the connection is closed

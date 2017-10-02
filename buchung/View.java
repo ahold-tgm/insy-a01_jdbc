@@ -72,6 +72,9 @@ class View extends JFrame {
         this.setVisible(true);
     }
 
+    void flightPanel() {
+        //not implemented yet
+    }
     /**
      * adds basic JFrame options like Size, Title or Close Operation
      */
@@ -85,24 +88,27 @@ class View extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public JComboBox getDeparture_country() {
+    JComboBox getDeparture_country() {
         return departure_country;
     }
-    public void setDeparture_country(JComboBox departure_country) {
-        this.departure_country = departure_country;
-    }
 
-    public JComboBox getDestination_country() {
+    JComboBox getDestination_country() {
         return destination_country;
     }
-    public void setDestination_country(JComboBox destination_country) {
-        this.destination_country = destination_country;
-    }
 
-    public JButton getSubmit_country() {
+    JButton getSubmit_country() {
         return submit_country;
     }
-    public void setSubmit_country(JButton submit_country) {
-        this.submit_country = submit_country;
+
+    public JComboBox getDeparture_airport() {
+        return departure_airport;
+    }
+
+    public JComboBox getDestination_airport() {
+        return destination_airport;
+    }
+
+    public JButton getSubmit_airport() {
+        return submit_airport;
     }
 }

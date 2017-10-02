@@ -1,9 +1,14 @@
 class Model {
     private String[] countries = {"", "", ""};
+
     private String[] departureAirports = {"", "", ""};
     private String[] destinationAirports = {"", "", ""};
+
     private String selectedDepartureCountry = "";
     private String selectedDestinationCountry = "";
+
+    private String selectedDepartureAirport = "";
+    private String selectedDestinationAirport = "";
 
     /**
      * the model is used to store certain information
@@ -46,4 +51,19 @@ class Model {
     public void setSelectedDestinationCountry(String selectedDestinationCountry) {
         this.selectedDestinationCountry = selectedDestinationCountry;
     }
+
+    public String getSelectedDepartureAirport() {
+        return selectedDepartureAirport;
+    }
+    public void setSelectedDepartureAirport(String selectedDepartureAirport) {
+        this.selectedDepartureAirport = selectedDepartureAirport;
+    }
+
+    public String getSelectedDestinationAirport() {
+        return selectedDestinationAirport;
+    }
+    public void setSelectedDestinationAirport(String selectedDestinationAirport) {
+        this.selectedDestinationAirport = selectedDestinationAirport;
+    }
+
 }

@@ -26,13 +26,33 @@ class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.v.getSubmit_country()){
 
-            this.m.setSelectedDepartureCountry((String)this.v.getDeparture_country().getSelectedItem());
-            this.m.setSelectedDestinationCountry((String) this.v.getDestination_country().getSelectedItem());
-            System.out.println(this.m.getSelectedDepartureCountry());
-            System.out.println(this.m.getSelectedDestinationCountry());
+            String selectedDepartureCountry = (String) this.v.getDeparture_country().getSelectedItem();
+            this.m.setSelectedDepartureCountry(selectedDepartureCountry);
+
+            String selectedDestinationCountry = (String) this.v.getDestination_country().getSelectedItem();
+            this.m.setSelectedDestinationCountry(selectedDestinationCountry);
+
+            System.out.println("selected departure country: " + this.m.getSelectedDepartureCountry());
+            System.out.println("selected departure country: " + this.m.getSelectedDestinationCountry());
+
             this.m.setDepartureAirports(this.dbcon.getAirportList(this.m.getSelectedDepartureCountry()));
             this.m.setDestinationAirports(this.dbcon.getAirportList(this.m.getSelectedDestinationCountry()));
+
             this.v.airportPanel();
+        }
+        if (e.getSource() == this.v.getSubmit_airport()){
+            String selectedDepartureAirport = (String) this.v.getDeparture_airport().getSelectedItem();
+            this.m.setSelectedDepartureAirport(selectedDepartureAirport);
+
+            String selectedDestinationAirport = (String) this.v.getDestination_airport().getSelectedItem();
+            this.m.setSelectedDestinationAirport(selectedDestinationAirport);
+
+            System.out.println("selected departure airport: " + this.m.getSelectedDepartureAirport());
+            System.out.println("selected departure airport: " + this.m.getSelectedDestinationAirport());
+
+            this.dbcon.getFlightList();
+
+            this.v.flightPanel();
         }
     }
 
