@@ -136,7 +136,7 @@ class DBConnection {
      * close the connection
      * @return true if the connection is closed
      */
-    public boolean closeConnection(){
+    boolean closeConnection(){
         try {
             this.conn.close();
         } catch (SQLException e) {

@@ -17,53 +17,52 @@ class Model {
 
     }
 
-    public String[] getCountries() {
+    String[] getCountries() {
         return countries;
     }
-    public void setCountries(String[] countries) {
+    void setCountries(String[] countries) {
         this.countries = countries;
     }
 
-    public String[] getDepartureAirports() {
+    String[] getDepartureAirports() {
         return departureAirports;
     }
-    public void setDepartureAirports(String[] departureAirports) {
+    void setDepartureAirports(String[] departureAirports) {
         this.departureAirports = departureAirports;
     }
 
-    public String[] getDestinationAirports() {
+    String[] getDestinationAirports() {
         return destinationAirports;
     }
-    public void setDestinationAirports(String[] destinationAirports) {
+    void setDestinationAirports(String[] destinationAirports) {
         this.destinationAirports = destinationAirports;
     }
 
-    public String getSelectedDepartureCountry() {
+    String getSelectedDepartureCountry() {
         return selectedDepartureCountry;
     }
-    public void setSelectedDepartureCountry(String selectedDepartureCountry) {
+    void setSelectedDepartureCountry(String selectedDepartureCountry) {
         this.selectedDepartureCountry = selectedDepartureCountry;
     }
 
-    public String getSelectedDestinationCountry() {
+    String getSelectedDestinationCountry() {
         return selectedDestinationCountry;
     }
-    public void setSelectedDestinationCountry(String selectedDestinationCountry) {
+    void setSelectedDestinationCountry(String selectedDestinationCountry) {
         this.selectedDestinationCountry = selectedDestinationCountry;
     }
 
-    public String getSelectedDepartureAirport() {
+    String getSelectedDepartureAirport() {
         return selectedDepartureAirport;
     }
-    public void setSelectedDepartureAirport(String selectedDepartureAirport) {
+    void setSelectedDepartureAirport(String selectedDepartureAirport) {
         this.selectedDepartureAirport = selectedDepartureAirport;
     }
 
-    public String getSelectedDestinationAirport() {
+    String getSelectedDestinationAirport() {
         return selectedDestinationAirport;
     }
-    public void setSelectedDestinationAirport(String selectedDestinationAirport) {
+    void setSelectedDestinationAirport(String selectedDestinationAirport) {
         this.selectedDestinationAirport = selectedDestinationAirport;
     }
-
 }

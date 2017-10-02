@@ -100,15 +100,15 @@ class View extends JFrame {
         return submit_country;
     }
 
-    public JComboBox getDeparture_airport() {
+    JComboBox getDeparture_airport() {
         return departure_airport;
     }
 
-    public JComboBox getDestination_airport() {
+    JComboBox getDestination_airport() {
         return destination_airport;
     }
 
-    public JButton getSubmit_airport() {
+    JButton getSubmit_airport() {
         return submit_airport;
     }
 }
