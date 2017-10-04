@@ -1,20 +1,36 @@
+import java.util.ArrayList;
+
 class Model {
-    private String[] countries = {"", "", ""};
+    private String[] countries;
 
-    private String[] departureAirports = {"", "", ""};
-    private String[] destinationAirports = {"", "", ""};
+    private String[] departureAirports;
+    private String[] destinationAirports;
 
-    private String selectedDepartureCountry = "";
-    private String selectedDestinationCountry = "";
+    private String selectedDepartureCountry;
+    private String selectedDestinationCountry;
 
-    private String selectedDepartureAirport = "";
-    private String selectedDestinationAirport = "";
+    private String selectedDepartureAirport;
+    private String selectedDestinationAirport;
 
+    private ArrayList allAvailableFlights;
+    private String[] allAvailableFlights_code;
     /**
      * the model is used to store certain information
      */
     Model() {
+        this.countries = new String[]{"", "", ""};
 
+        this.departureAirports = new String[]{"", "", ""};
+        this.destinationAirports = new String[]{"", "", ""};
+
+        this.selectedDepartureCountry = "";
+        this.selectedDestinationCountry = "";
+
+        this.selectedDepartureAirport = "";
+        this.selectedDestinationAirport = "";
+
+        this.allAvailableFlights = new ArrayList<ArrayList>();
+        this.allAvailableFlights_code= new String[]{"", "", ""};
     }
 
     String[] getCountries() {
@@ -64,5 +80,24 @@ class Model {
     }
     void setSelectedDestinationAirport(String selectedDestinationAirport) {
         this.selectedDestinationAirport = selectedDestinationAirport;
+    }
+
+    /**
+     * @return ArrayList<ArrayList<String>> by default, when extracted
+     */
+    ArrayList getAllAvailableFlights() {
+        return allAvailableFlights;
+    }
+
+    void setAllAvailableFlights(ArrayList allAvailableFlights) {
+        this.allAvailableFlights = allAvailableFlights;
+    }
+
+    String[] getAllAvailableFlights_code() {
+        return allAvailableFlights_code;
+    }
+
+    void setAllAvailableFlights_code(String[] allAvailableFlights_code) {
+        this.allAvailableFlights_code = allAvailableFlights_code;
     }
 }
