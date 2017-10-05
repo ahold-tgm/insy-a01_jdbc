@@ -14,8 +14,10 @@ class Model {
 
     private ArrayList allAvailableFlights;
     private String[] allAvailableFlights_code;
+
+    private ArrayList selectedFlight;
     /**
-     * the model is used to store certain information
+     * the model - used to store all needed information
      */
     Model() {
         this.countries = new String[]{"", "", ""};
@@ -31,6 +33,8 @@ class Model {
 
         this.allAvailableFlights = new ArrayList<ArrayList>();
         this.allAvailableFlights_code= new String[]{"", "", ""};
+
+        this.selectedFlight = new ArrayList<String>();
     }
 
     String[] getCountries() {
@@ -83,12 +87,25 @@ class Model {
     }
 
     /**
+     * to access a Flight do Flightlist.get(index of Flight)
+     * in non pseudo code:
+     *          ((ArrayList) allAvailableFlights.get(i)).get(j)
+     * Cast needed
+     * i ... index of the flight
+     * j ... index of the data
+     *      0 ... airline
+     *      1 ... flightnr
+     *      2 ... dep time
+     *      3 ... dep airport
+     *      4 ... dest time
+     *      5 ... dest airport
+     *      6 ... planetype
+     *
      * @return ArrayList<ArrayList<String>> by default, when extracted
      */
     ArrayList getAllAvailableFlights() {
         return allAvailableFlights;
     }
-
     void setAllAvailableFlights(ArrayList allAvailableFlights) {
         this.allAvailableFlights = allAvailableFlights;
     }
@@ -96,8 +113,19 @@ class Model {
     String[] getAllAvailableFlights_code() {
         return allAvailableFlights_code;
     }
-
     void setAllAvailableFlights_code(String[] allAvailableFlights_code) {
         this.allAvailableFlights_code = allAvailableFlights_code;
+    }
+
+    /**
+     * ArrayList extracted from the FlightList
+     *
+     * @return ArrayList<String> ArrayList with data stored as Strings
+     */
+    ArrayList getSelectedFlight() {
+        return selectedFlight;
+    }
+    void setSelectedFlight(ArrayList selectedFlight) {
+        this.selectedFlight = selectedFlight;
     }
 }
