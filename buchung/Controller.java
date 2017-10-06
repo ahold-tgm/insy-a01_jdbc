@@ -39,11 +39,15 @@ class Controller implements ActionListener {
         if(e.getSource() == this.v.getStart_again()){
             this.v.countryPanel();
         }
-        if(e.getSource() == this.v.getView_flights() || e.getSource() == this.v.getInsertPassenger()){
+        if(e.getSource() == this.v.getView_flights()){
             goToFlight();
         }
         if(e.getSource() == this.v.getAddUser_flights()){
             this.v.addPassengerPanel();
+        }
+        if(e.getSource() == this.v.getInsertPassenger()){
+            this.addFlightPassenger();
+            goToFlight();
         }
     }
 
